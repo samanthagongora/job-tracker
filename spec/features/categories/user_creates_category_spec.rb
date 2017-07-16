@@ -13,7 +13,7 @@ describe "User visits category index" do
   end
 
   scenario "is redirected if makes duplicate category with error" do
-    category = create(:category)
+    category = create(:category, title: "MyString")
 
     visit '/categories'
     click_on 'New Category'
