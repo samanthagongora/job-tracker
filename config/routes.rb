@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:edit, :destroy, :update, :show]
 
-  resources :categories, only: [:create, :index] do
+  resources :categories, only: [:create, :index, :new] do
     resources :jobs
   end
 
