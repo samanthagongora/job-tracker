@@ -3,3 +3,5 @@ All Categories
 <% @categories.each do |category| %>
   <ul><%= link_to category.title, category_jobs_path(category) %></ul>
 <% end %>
+
+<%= link_to 'New Category', new_category_path %>

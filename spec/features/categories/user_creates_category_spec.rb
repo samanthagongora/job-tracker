@@ -8,8 +8,8 @@ describe "User visits category index" do
     fill_in "category[title]", with: "Carpentry"
     click_button "Create Category"
 
-    expect(current_path).to eq("/categories/#{category.id}")
-    expect(page).to have_content category.title
+    expect(current_path).to eq("/categories/#{Category.last.id}")
+    expect(page).to have_content Category.last.title
   end
 
   scenario "is redirected if makes duplicate category with error" do
@@ -18,7 +18,7 @@ describe "User visits category index" do
     visit '/categories'
     click_on 'New Category'
 
-    fill_in "category[title]", with: "My String"
+    fill_in "category[title]", with: "MyString"
     click_button "Create Category"
 
     expect(current_path).to eq("/categories/new")
