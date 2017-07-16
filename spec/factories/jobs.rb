@@ -13,5 +13,7 @@ FactoryGirl.define do
     end
 
     company
+
+    category
   end
 end

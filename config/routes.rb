@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :jobs, only: [:edit, :destroy, :update, :show]
-  resources :category, only: [:create, :index]
+
+  resources :categories, only: [:create, :index] do
+    resources :jobs
+  end
 
   resources :companies do
     resources :jobs
