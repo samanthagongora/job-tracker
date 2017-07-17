@@ -1,7 +1,4 @@
 class CategoriesController < ApplicationController
-
-  CATEGORIES = Category.all.pluck(:title)
-
   def index
     @categories = Category.all
   end
@@ -18,7 +15,7 @@ class CategoriesController < ApplicationController
         redirect_to params[:page]
       else
         redirect_to category_path(@category)
-      end 
+      end
     else
       flash[:notice] = "That category already exists"
       redirect_to new_category_path
