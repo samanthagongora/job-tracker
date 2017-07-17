@@ -64,13 +64,17 @@
     </div>
   </div>
 </nav>
-  <% flash.each do |name, msg| %>
+  <% flash.each do |_name, msg| %>
     <% if flash[:notice] %>
-      <strong>Error!</strong><br><hr>
-      <%= msg %>
+      <div class="alert alert-danger text-center">
+        <strong>Error!</strong><br><hr>
+        <%= msg %>
+      </div>
     <% else %>
-      <strong>Success!</strong><br><hr>
-      <%= msg %>
+      <div class="alert alert-success" role="alert">
+        <strong>Success!</strong><br><hr>
+        <%= msg %>
+      </div>
     <% end %>
   <% end %>
 

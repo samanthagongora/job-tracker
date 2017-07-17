@@ -1,11 +1,7 @@
 class ContactsController < ApplicationController
-  def new
-    @company = Company.find(params[:id])
-    @contact = Contact.new
-  end
 
   def create
-    @company = Company.find(params[:id])
+    @company = Company.find(params[:company_id])
     @contact = Contact.new(contact_params.merge(company: @company))
 
     if @contact.save
@@ -20,5 +16,9 @@ class ContactsController < ApplicationController
 
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :position, :email)
+  end
+
+  def company_params
+    params.permit(:id)
   end
 end

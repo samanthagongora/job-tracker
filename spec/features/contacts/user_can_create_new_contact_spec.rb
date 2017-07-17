@@ -6,7 +6,6 @@ describe "User visits company page" do
 
     visit '/companies'
     click_on company.name
-    click_on 'New Contact'
     fill_in 'contact[first_name]', with: "First"
     fill_in 'contact[last_name]', with: "Last"
     fill_in 'contact[position]', with: "Hiring Manager"

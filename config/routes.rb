@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
 
   resources :companies do
-    resources :jobs, shallow: true
     resources :contacts, shallow: true
+    resources :jobs, shallow: true
   end
 end
