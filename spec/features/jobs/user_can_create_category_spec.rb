@@ -14,7 +14,7 @@ describe "User creates a new job" do
 
     click_button "Create Category"
 
-    expect(current_path).to eq("/jobs/new")
-    expect(page).to have_content("#{@category.title} added!")
+    expect(current_path).to eq("/categories/#{Category.last.id}")
+    expect(page).to have_content("#{Category.last.title} added!")
   end
 end
