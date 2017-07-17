@@ -18,9 +18,4 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
 <%= render partial: "comment_form" %>
 
-<h3> Comments </h3>
-<% @comments.each do |comment| %>
-  <%= comment.content %><br>
-  created at: <%= comment.created_at %><br>
-  updated at: <%= comment.updated_at %><hr>
-<% end %>
+<%= render partial: 'jobs/comment', collection: @job.comments.reverse %>

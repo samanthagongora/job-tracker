@@ -7,7 +7,6 @@ describe "User visits job page" do
     visit '/companies'
     click_on job.company.name
     click_on job.title
-    # binding.byebug
     fill_in 'comment[content]', with: "This is a comment"
     click_on 'Create Comment'
 
@@ -18,15 +17,16 @@ describe "User visits job page" do
     expect(page).to have_content("#{job.updated_at}")
   end
 
-  # scenario "a user can create multiple comments in order" do
-  #   job = create(:job)
-  #   comment1 = create(:comment, job: job)
-  #   comment2 = create(:comment, job: job)
-  #   comment3 = create(:comment, job: job)
-  #
-  #   visit '/companies'
-  #   click_on job.company
-  #   click_on job.title
-  #
-  # end
+  scenario "a user can create multiple comments in order" do
+    job = create(:job)
+    comment1 = create(:comment, job: job)
+    comment2 = create(:comment, job: job)
+    comment3 = create(:comment, job: job)
+
+    visit '/companies'
+    click_on job.company.name
+    click_on job.title
+
+    expect(page.body).to have_content(/#{comment1.content}.*#{comment2.content}.*#{comment3.content}/)
+  end
 end
