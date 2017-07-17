@@ -3,11 +3,9 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:edit, :destroy, :update, :show]
 
-  resources :categories do
-    resources :jobs
-  end
+  resources :categories
 
   resources :companies do
-    resources :jobs
+    resources :jobs, shallow: true
   end
 end

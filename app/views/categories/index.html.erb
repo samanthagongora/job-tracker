@@ -1,7 +1,7 @@
 All Categories
 
 <% @categories.each_with_index do |category, idx| %>
-  <li><%= link_to category.title, category_jobs_path(category) %>:
+  <li><%= link_to category.title, category %>:
     <%= link_to "Delete", category_path(category), method: "delete" %>
     <%= link_to "Edit", edit_category_path(category) %></li>
 <% end %>

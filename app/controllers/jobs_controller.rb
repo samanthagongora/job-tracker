@@ -14,8 +14,9 @@ class JobsController < ApplicationController
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
+      redirect_to job_path(@job)
     else
+      flash[:notice] = "#{@job.title} at #{@company.name} cannot be created because: #{@job.errors.full_messages.join(', ')}"
       render :new
     end
   end
