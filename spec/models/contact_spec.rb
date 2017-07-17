@@ -1,5 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    context "invalid attributes" do
+      it "is invalid without content" do
+        contact = Contact.new()
+
+        expect(contact).to be_invalid
+      end
+    end
+
+    context "valid attributes" do
+      it "is valid with a title, level of interest, and company" do
+        company = create(:company)
+        contact = create(:contact, company: company)
+
+        expect(contact).to be_valid
+      end
+    end
+  end
+
+  describe "relationships" do
+    it "belongs to a company" do
+      contact = create(:contact)
+      
+      expect(contact).to respond_to(:company)
+    end
+  end
 end
