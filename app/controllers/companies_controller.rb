@@ -20,7 +20,8 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @jobs = @company.jobs
-    redirect_to company_jobs_path(@company)
+    @contacts = Contact.where(company: @company)
+    @contact = Contact.new(company: @company)
   end
 
   def edit

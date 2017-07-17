@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "User visits category index" do
   scenario "can create a new category" do
     visit '/categories'
-    click_on 'New Category'
+    click_on "New Category", match: :first
 
     fill_in "category[title]", with: "Carpentry"
     click_button "Create Category"
@@ -16,7 +16,7 @@ describe "User visits category index" do
     category = create(:category, title: "MyString")
 
     visit '/categories'
-    click_on 'New Category'
+    click_on "New Category", match: :first
 
     fill_in "category[title]", with: "MyString"
     click_button "Create Category"

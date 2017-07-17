@@ -8,7 +8,7 @@ describe "User creates a new job" do
     click_on 'ESPN'
     click_on 'New Job'
 
-    click_on 'New Category'
+    click_on 'New Category', match: :first
 
     fill_in "category[title]", with: "Something"
 

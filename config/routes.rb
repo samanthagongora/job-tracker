@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :contacts, only: [:new, :create]
+
   resources :companies do
     resources :jobs, shallow: true
+    resources :contacts, shallow: true
   end
 end

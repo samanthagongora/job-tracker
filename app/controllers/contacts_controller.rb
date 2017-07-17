@@ -1,11 +1,11 @@
-class CommentsController < ApplicationController
+class ContactsController < ApplicationController
   def new
-    @company = Company.find(params[:company_id])
+    @company = Company.find(params[:id])
     @contact = Contact.new
   end
 
   def create
-    @company = Company.find(params[:company_id])
+    @company = Company.find(params[:id])
     @contact = Contact.new(contact_params.merge(company: @company))
 
     if @contact.save

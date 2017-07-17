@@ -65,9 +65,13 @@
   </div>
 </nav>
   <% flash.each do |name, msg| %>
-    <% content_tag :div, class: "alert alert-danger text-center" %>
-    <strong>Error!</strong><br><hr>
-    <%= msg %>
+    <% if flash[:notice] %>
+      <strong>Error!</strong><br><hr>
+      <%= msg %>
+    <% else %>
+      <strong>Success!</strong><br><hr>
+      <%= msg %>
+    <% end %>
   <% end %>
 
   <div class="container-fluid text-center">
